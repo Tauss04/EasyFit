@@ -44,6 +44,8 @@ public class VentanaInicio {
         Gimnasio.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		ventanaInicio.setVisible(false);
+        		VentanaMenuGimnasio v = new VentanaMenuGimnasio();
+        		v.mostrar();
         	}
         });
  
