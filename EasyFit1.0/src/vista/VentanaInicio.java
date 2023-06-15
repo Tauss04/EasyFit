@@ -1,6 +1,6 @@
 package vista;
 
-import java.awt.Color; 
+import java.awt.Color;  
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -12,12 +12,19 @@ import javax.swing.JLabel;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import modelo.ListaGimnasios;
 
 
 
 public class VentanaInicio {
 	private JFrame ventanaInicio;
-	public VentanaInicio() {
+	private VentanaMenu v1;
+	private VentanaMenuGimnasio v;
+	private ListaGimnasios listaGimnasios;
+	
+	public VentanaInicio(ListaGimnasios l) {
+		this.listaGimnasios=l;
+		
 		ventanaInicio = new JFrame();
 		ventanaInicio.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaInicio.class.getResource("/imagenes/log.jpg")));
 		ventanaInicio.setSize(900, 700);
@@ -43,8 +50,7 @@ public class VentanaInicio {
         JButton Gimnasio = new JButton("Gimnasio");
         Gimnasio.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ventanaInicio.setVisible(false);
-        		VentanaMenuGimnasio v = new VentanaMenuGimnasio();
+        		v = new VentanaMenuGimnasio(listaGimnasios);
         		v.mostrar();
         	}
         });
@@ -68,8 +74,7 @@ public class VentanaInicio {
         JButton Cliente = new JButton("Cliente");
         Cliente.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ventanaInicio.setVisible(false);
-        		VentanaMenu v1 = new VentanaMenu();
+        		v1 = new VentanaMenu(listaGimnasios);
         		v1.mostrar();
         	}
         });

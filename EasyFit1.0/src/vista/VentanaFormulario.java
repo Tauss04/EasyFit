@@ -10,13 +10,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import control.EscuchadorBuscar;
+import modelo.ListaGimnasios;
 
 public class VentanaFormulario {
     private JFrame ventanaFormulario;
     private EscuchadorBuscar b1;
-	
-    public VentanaFormulario() {
-    	
+	private ListaGimnasios listaComp;
+    
+    public VentanaFormulario(ListaGimnasios l) {
+    	this.listaComp=l;
     	
     	
         ventanaFormulario = new JFrame();
@@ -94,7 +96,7 @@ public class VentanaFormulario {
         gbc.gridy= 4;
         contenedor.add(buscar,gbc);
         
-        b1 =new EscuchadorBuscar();  
+        b1 =new EscuchadorBuscar(listaComp);  
         
         
         

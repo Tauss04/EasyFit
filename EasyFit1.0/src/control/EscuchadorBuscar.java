@@ -1,5 +1,7 @@
 package control;
 import modelo.Buscador;
+import modelo.ListaGimnasios;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.ListaMostrarGimnasios;
@@ -12,7 +14,12 @@ public class EscuchadorBuscar implements ActionListener {
 	private String scalle="0";
 	private String snumero="0";
 	private String scpostal;
-	private ListaMostrarGimnasios lista;
+	private ListaMostrarGimnasios listaFin;
+	private ListaGimnasios listaComp;
+	
+	public EscuchadorBuscar(ListaGimnasios l) {
+		this.listaComp=l;
+	}
 	
 	public void setCalle(JTextField calle) {
 		this.calle=calle;
@@ -35,17 +42,17 @@ public class EscuchadorBuscar implements ActionListener {
 		//Si no se encuentran se muestra una lista con un mensaje
 		
 		Buscador bus = new Buscador(scalle,snumero,scpostal);
+		bus.pasoLista(listaComp);
 		
-		
-		lista = new ListaMostrarGimnasios();
+		listaFin = new ListaMostrarGimnasios();
 		boolean error = bus.hayError();
 		if(error==false) {
 			if(bus.buscar()=="Gimnasio encontrado: ") {
-				lista.noResult();
-				lista.mostrar();
+				listaFin.noResult();
+				listaFin.mostrar();
 			}else {
-				lista.setGimnasios(bus.buscar());		
-				lista.mostrar();
+				listaFin.setGimnasios(bus.buscar());		
+				listaFin.mostrar();
 			}
 		}else {
 			System.out.println("salta Alerta");

@@ -1,7 +1,8 @@
  
 package vista;
+ 
+import java.awt.Color;  
 
-import java.awt.Color; 
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -10,14 +11,18 @@ import java.awt.Insets;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import control.EscuchadorBuscarGimnasio;
 import java.awt.Toolkit;
-
+import modelo.ListaGimnasios;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaMenu {	
-	protected JFrame ventana1;
+	private JFrame ventana1;
+	private ListaGimnasios listaComp;
 	
-	public VentanaMenu() {				
+	public VentanaMenu(ListaGimnasios l) {		
+		this.listaComp=l;
+		
 		ventana1 = new JFrame();
 		ventana1.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaMenu.class.getResource("/imagenes/log.jpg")));
 		ventana1.setSize(900,700);
@@ -49,13 +54,19 @@ public class VentanaMenu {
     
         //Boton Buscar Gimnasios
         JButton buscarGym = new JButton("BuscarGimnasios");
+        buscarGym.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		VentanaFormulario ventana2 = new VentanaFormulario(listaComp);		
+        		ventana2.mostrar();
+        	}
+        });
         buscarGym.setFont(new Font("Helvetica", Font.PLAIN,18));
-        EscuchadorBuscarGimnasio b1 = new EscuchadorBuscarGimnasio();
+        
         
         //Nuevo
         
         
-        buscarGym.addActionListener(b1);
+       
         GridBagConstraints gbcBuscarGym = new GridBagConstraints();
         gbcBuscarGym.gridx=1;
         gbcBuscarGym.gridy=1;
