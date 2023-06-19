@@ -38,7 +38,7 @@ public class Buscador {
 				String cpUsuarioS=Integer.toString(cpUsuario);
 				
 				if(cp.equals(cpUsuarioS)) {								
-					datosGymS=datosGymS+"\n"+nuevo.getNombre()+" "+nuevo.getCalle();	
+					datosGymS=datosGymS+"\n"+"- "+nuevo.getNombre()+" "+nuevo.getCalle();	
 					System.out.println("DEBUG 2: ");
 				}
 			}catch(NumberFormatException ex) {

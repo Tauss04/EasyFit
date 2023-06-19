@@ -47,7 +47,7 @@ public class VentanaInicio {
         JButton Gimnasio = new JButton("Gimnasio");
         Gimnasio.setBounds(242, 549, 189, 55);
         Gimnasio.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
+        	public void actionPerformed(ActionEvent e) {       		
         		v = new VentanaMenuGimnasio(listaGimnasios,ventanaInicio);
         		v.mostrar();
         	}
@@ -75,7 +75,7 @@ public class VentanaInicio {
         
         JLabel bienvenido = new JLabel("Bienvenido a EasyFit");
         bienvenido.setFont(new Font("SansSerif", Font.BOLD, 40));
-        bienvenido.setBounds(263, 11, 396, 81);
+        bienvenido.setBounds(242, 10, 425, 81);
         ventanaInicio.getContentPane().add(bienvenido);
         
         JLabel lblNewLabel = new JLabel("");

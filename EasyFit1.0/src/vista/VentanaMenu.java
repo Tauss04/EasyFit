@@ -13,18 +13,23 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Toolkit;
 import modelo.ListaGimnasios;
+import modelo.Rutina;
+
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class VentanaMenu {	
 	private JFrame ventana1;
 	private ListaGimnasios listaComp;
 	private JFrame ventanaInicio;
+	private  ArrayList<Rutina> listaRutinas;
 	
 	public VentanaMenu(ListaGimnasios l, JFrame ventanaInicio) {		
 		this.listaComp=l;
 		this.ventanaInicio=ventanaInicio;
 		
+		listaRutinas = new ArrayList<>();
 		ventana1 = new JFrame();
 		ventana1.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaMenu.class.getResource("/imagenes/log.jpg")));
 		ventana1.setSize(900,700);
@@ -88,6 +93,8 @@ public class VentanaMenu {
         JButton rutina = new JButton("Mis Rutinas");
         rutina.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		VentanaRutina vRutina= new VentanaRutina(ventana1,listaRutinas);
+        		vRutina.mostrar();
         	}
         });
         rutina.setBounds(360, 322, 190, 47);
@@ -119,6 +126,8 @@ public class VentanaMenu {
         btnVolverAInicio.setFont(new Font("SansSerif", Font.PLAIN, 15));
         btnVolverAInicio.setBounds(10, 614, 149, 36);
         ventana1.getContentPane().add(btnVolverAInicio);
+        
+        
         
 	}
 		public void mostrar() {

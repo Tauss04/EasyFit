@@ -1,6 +1,6 @@
 package vista;
 
-import javax.swing.JFrame;
+import javax.swing.JFrame; 
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -62,7 +62,7 @@ public class ListaMostrarGimnasios  {
 		scrollBar.setBounds(359, 108, 17, 108);
 		contentPane.add(scrollBar);
 	}
-	//USADO EN ESCUCHADOR BUSCAR ANTES DEL CAMBIO
+	
 	public void setGimnasios(String gimnasioS) {
 		listaTxt.setText(gimnasioS);
 	}
