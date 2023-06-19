@@ -13,6 +13,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import modelo.ListaGimnasios;
+import javax.swing.ImageIcon;
 
 
 
@@ -31,26 +32,23 @@ public class VentanaInicio {
 		ventanaInicio.setLocationRelativeTo(null);
 		ventanaInicio.setTitle("EasyFit");
 		
-		ventanaInicio.getContentPane().setBackground(new Color(43, 164, 255));
+		ventanaInicio.getContentPane().setBackground(new Color(33, 141, 115));
+		ventanaInicio.getContentPane().setLayout(null);
 	
-		ventanaInicio.getContentPane().setLayout(new GridBagLayout());
 		
-		JLabel titulo = new JLabel("¿Que usuario eres?");
-		titulo.setFont(new Font("Helvetica", Font.BOLD, 40));
-		GridBagConstraints gbcTitulo = new GridBagConstraints();
-        gbcTitulo.gridx = 0; // Columna 0
-        gbcTitulo.gridy = 0; // Fila 0
-        gbcTitulo.gridwidth = GridBagConstraints.REMAINDER; // Ancho total
-        gbcTitulo.anchor = GridBagConstraints.NORTH; // Posicionamos en la parte superior
-        gbcTitulo.insets = new Insets(40, 0, 0, 0); // Padding superior
-        gbcTitulo.weighty = 1.0;
+		
+		JLabel titulo = new JLabel("¿Que tipo de usuario eres?");
+		titulo.setBounds(242, 451, 425, 73);
+		titulo.setFont(new Font("SansSerif", Font.BOLD, 32));
+       
         
-        ventanaInicio.getContentPane().add(titulo,gbcTitulo);
+        ventanaInicio.getContentPane().add(titulo);
         
         JButton Gimnasio = new JButton("Gimnasio");
+        Gimnasio.setBounds(242, 549, 189, 55);
         Gimnasio.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		v = new VentanaMenuGimnasio(listaGimnasios);
+        	public void actionPerformed(ActionEvent e) {       		
+        		v = new VentanaMenuGimnasio(listaGimnasios,ventanaInicio);
         		v.mostrar();
         	}
         });
@@ -58,41 +56,32 @@ public class VentanaInicio {
         
        
         
-        Gimnasio.setFont(new Font("Helvetica", Font.PLAIN,18));
-        
-        GridBagConstraints gbc_Gimnasio = new GridBagConstraints();
-        gbc_Gimnasio.gridx=1;
-        gbc_Gimnasio.gridy=1;
-        gbc_Gimnasio.gridwidth= GridBagConstraints.REMAINDER;
-        gbc_Gimnasio.anchor= GridBagConstraints.CENTER;
-        gbc_Gimnasio.insets = new Insets(0,0,300,0);
-        gbc_Gimnasio.weighty = 1.0;
-        Gimnasio.setPreferredSize(new Dimension(200,50));
-        
-        ventanaInicio.getContentPane().add(Gimnasio,gbc_Gimnasio);
+        Gimnasio.setFont(new Font("Helvetica", Font.PLAIN,18));        
+        ventanaInicio.getContentPane().add(Gimnasio);
         
         JButton Cliente = new JButton("Cliente");
+        Cliente.setBounds(478, 551, 189, 50);
         Cliente.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		v1 = new VentanaMenu(listaGimnasios);
+        		ventanaInicio.setVisible(false);
+        		v1 = new VentanaMenu(listaGimnasios,ventanaInicio);
         		v1.mostrar();
         	}
         });
-        Cliente.setFont(new Font("Helvetica",Font.PLAIN,18));
+        Cliente.setFont(new Font("Helvetica",Font.PLAIN,18)); 
+       Cliente.setPreferredSize(new Dimension(200,50));
         
-       
+        ventanaInicio.getContentPane().add(Cliente);
         
+        JLabel bienvenido = new JLabel("Bienvenido a EasyFit");
+        bienvenido.setFont(new Font("SansSerif", Font.BOLD, 40));
+        bienvenido.setBounds(242, 10, 425, 81);
+        ventanaInicio.getContentPane().add(bienvenido);
         
-        GridBagConstraints gbc_Cliente = new GridBagConstraints();
-        gbc_Cliente.gridx=1;
-        gbc_Cliente.gridy=1;
-        gbc_Cliente.gridwidth= GridBagConstraints.REMAINDER;
-        gbc_Cliente.anchor= GridBagConstraints.CENTER;
-        gbc_Cliente.insets = new Insets(0,0,150,0);
-        gbc_Cliente.weighty = 1.0;
-        Cliente.setPreferredSize(new Dimension(200,50));
-        
-        ventanaInicio.getContentPane().add(Cliente,gbc_Cliente);
+        JLabel lblNewLabel = new JLabel("");
+        lblNewLabel.setIcon(new ImageIcon(VentanaInicio.class.getResource("/imagenes/logo.png")));
+        lblNewLabel.setBounds(97, -85, 850, 700);
+        ventanaInicio.getContentPane().add(lblNewLabel);
 	}
 	public void mostrar() {
 		ventanaInicio.setVisible(true);

@@ -38,25 +38,20 @@ public class Buscador {
 				String cpUsuarioS=Integer.toString(cpUsuario);
 				
 				if(cp.equals(cpUsuarioS)) {								
-					datosGymS=datosGymS+"\n"+nuevo.getNombre()+" "+nuevo.getCalle();	
+					datosGymS=datosGymS+"\n"+"- "+nuevo.getNombre()+" "+nuevo.getCalle();	
 					System.out.println("DEBUG 2: ");
 				}
 			}catch(NumberFormatException ex) {
-				error=true;
+				datosGymS="ERROR";			
 			}			
 		}
 		
-		if(error==true) {
+		if(datosGymS=="ERROR") {
 			AlertaFormulario a1 = new AlertaFormulario();
 			a1.mostrar();
 		}
 		return datosGymS;
 		
 		
-	}
-	public boolean hayError() {
-		return error;
-	}
-	
-	
+	}			
 }
