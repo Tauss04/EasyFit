@@ -3,9 +3,14 @@ package vista;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import modelo.Gimnasio;
+
 import javax.swing.JTextArea;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
+
 import javax.swing.JScrollBar;
 
 public class ListaMostrarGimnasios  {
@@ -18,6 +23,7 @@ public class ListaMostrarGimnasios  {
 		lista = new JFrame();
 		lista.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		lista.setBounds(100, 100, 450, 300);
+		lista.setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(100, 149, 237));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -34,12 +40,12 @@ public class ListaMostrarGimnasios  {
 		contentPane.add(txtrGimnasiosCercaDe);
 		
 		JTextArea txtrDeTi = new JTextArea();
-		txtrDeTi.setText("de ti");
+		txtrDeTi.setText("de ti :");
 		txtrDeTi.setForeground(Color.YELLOW);
 		txtrDeTi.setFont(new Font("Stencil", Font.ITALIC, 31));
 		txtrDeTi.setEditable(false);
 		txtrDeTi.setBackground(new Color(100, 149, 237));
-		txtrDeTi.setBounds(159, 45, 93, 36);
+		txtrDeTi.setBounds(159, 45, 106, 36);
 		contentPane.add(txtrDeTi);
 		
 		listaTxt = new JTextArea();
@@ -56,11 +62,26 @@ public class ListaMostrarGimnasios  {
 		scrollBar.setBounds(359, 108, 17, 108);
 		contentPane.add(scrollBar);
 	}
+	//USADO EN ESCUCHADOR BUSCAR ANTES DEL CAMBIO
 	public void setGimnasios(String gimnasioS) {
 		listaTxt.setText(gimnasioS);
 	}
+	
+	
+	/*public void pasoListaSelectiva(ArrayList<Gimnasio> lista) {
+		String datoS="";
+		for (int i=0;i<lista.size();i++) {
+			Gimnasio nuevo=(Gimnasio) lista.get(i);
+			datoS=datoS+"\n"+i+"- "+nuevo.getNombre()+" "+nuevo.getCalle();
+			listaTxt.setText(datoS);
+		}
+	}*/
+	
 	public void mostrar() {
 		lista.setVisible(true);
+	}
+	public void ocultar() {
+		lista.setVisible(false);
 	}
 	public void noResult() {
 		listaTxt.setText("No se han encontrado gimnasios cercanos");

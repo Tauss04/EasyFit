@@ -5,6 +5,8 @@ import modelo.ListaGimnasios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.ListaMostrarGimnasios;
+
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 public class EscuchadorBuscar implements ActionListener {	
@@ -16,9 +18,11 @@ public class EscuchadorBuscar implements ActionListener {
 	private String scpostal;
 	private ListaMostrarGimnasios listaFin;
 	private ListaGimnasios listaComp;
+	private JFrame ventanaFormulario;
 	
-	public EscuchadorBuscar(ListaGimnasios l) {
+	public EscuchadorBuscar(ListaGimnasios l, JFrame ventanaFormulario) {
 		this.listaComp=l;
+		this.ventanaFormulario=ventanaFormulario;
 	}
 	
 	public void setCalle(JTextField calle) {
@@ -44,18 +48,22 @@ public class EscuchadorBuscar implements ActionListener {
 		Buscador bus = new Buscador(scalle,snumero,scpostal);
 		bus.pasoLista(listaComp);
 		
-		listaFin = new ListaMostrarGimnasios();
-		boolean error = bus.hayError();
-		if(error==false) {
+		listaFin = new ListaMostrarGimnasios();		
+		if (bus.buscar()=="ERROR") {
+			System.out.println("salta Alerta");
+			listaFin.ocultar();
+		} else {
 			if(bus.buscar()=="Gimnasio encontrado: ") {
 				listaFin.noResult();
 				listaFin.mostrar();
-			}else {
+				ventanaFormulario.setVisible(false);
+			}else{
 				listaFin.setGimnasios(bus.buscar());		
 				listaFin.mostrar();
+				ventanaFormulario.setVisible(false);
 			}
-		}else {
-			System.out.println("salta Alerta");
 		}
+		
+		
 	}
 }

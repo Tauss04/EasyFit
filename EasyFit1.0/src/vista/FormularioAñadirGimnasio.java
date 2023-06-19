@@ -35,7 +35,7 @@ public class FormularioAñadirGimnasio {
         ventanaFormulario.getContentPane().add(lblNewLabel);
         
         JLabel lNombre = new JLabel("Nombre :");
-        lNombre.setBounds(101, 76, 46, 14);
+        lNombre.setBounds(97, 76, 86, 14);
         ventanaFormulario.getContentPane().add(lNombre);
         
         tNombre = new JTextField();
@@ -44,7 +44,7 @@ public class FormularioAñadirGimnasio {
         tNombre.setColumns(10);
         
         JLabel lCalle = new JLabel("Calle :");
-        lCalle.setBounds(101, 107, 46, 14);
+        lCalle.setBounds(111, 107, 46, 14);
         ventanaFormulario.getContentPane().add(lCalle);
         
         tCalle = new JTextField();
@@ -53,7 +53,7 @@ public class FormularioAñadirGimnasio {
         tCalle.setColumns(10);
         
         JLabel lNumero = new JLabel("Número :");
-        lNumero.setBounds(101, 138, 46, 14);
+        lNumero.setBounds(97, 138, 100, 14);
         ventanaFormulario.getContentPane().add(lNumero);
         
         tNumero = new JTextField();
@@ -62,7 +62,7 @@ public class FormularioAñadirGimnasio {
         tNumero.setColumns(10);
         
         JLabel lCp = new JLabel("CodigoPostal :");
-        lCp.setBounds(73, 169, 74, 14);
+        lCp.setBounds(73, 169, 102, 14);
         ventanaFormulario.getContentPane().add(lCp);
         
         tCp = new JTextField();

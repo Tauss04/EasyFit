@@ -42,21 +42,16 @@ public class Buscador {
 					System.out.println("DEBUG 2: ");
 				}
 			}catch(NumberFormatException ex) {
-				error=true;
+				datosGymS="ERROR";			
 			}			
 		}
 		
-		if(error==true) {
+		if(datosGymS=="ERROR") {
 			AlertaFormulario a1 = new AlertaFormulario();
 			a1.mostrar();
 		}
 		return datosGymS;
 		
 		
-	}
-	public boolean hayError() {
-		return error;
-	}
-	
-	
+	}			
 }
