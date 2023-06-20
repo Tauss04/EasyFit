@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class VentanaMenuGimnasio {
 	private JFrame vMenuG;
@@ -65,7 +66,8 @@ public class VentanaMenuGimnasio {
 		btnGestionContable.setBounds(366, 411, 200, 50);
 		vMenuG.getContentPane().add(btnGestionContable);
 		
-		JButton btnVolverInicio = new JButton("Volver a Inicio");
+		JButton btnVolverInicio = new JButton("");
+		btnVolverInicio.setIcon(new ImageIcon(VentanaMenuGimnasio.class.getResource("/imagenes/atrascolor.jpg")));
 		btnVolverInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vMenuG.setVisible(false);
@@ -75,7 +77,7 @@ public class VentanaMenuGimnasio {
 		btnVolverInicio.setForeground(Color.BLACK);
 		btnVolverInicio.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
 		btnVolverInicio.setBackground(Color.WHITE);
-		btnVolverInicio.setBounds(10, 611, 160, 39);
+		btnVolverInicio.setBounds(22, 579, 117, 71);
 		vMenuG.getContentPane().add(btnVolverInicio);
 	}
 	
