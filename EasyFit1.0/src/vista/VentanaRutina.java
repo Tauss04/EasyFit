@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
 import modelo.Rutina;
+import javax.swing.ImageIcon;
 
 public class VentanaRutina {
 	private JFrame vRutina;
@@ -71,6 +72,19 @@ public class VentanaRutina {
         textArea.setBackground(new Color(43, 164, 255));
         textArea.setBounds(71, 445, 707, 191);
         vRutina.getContentPane().add(textArea);
+        
+        JButton btnBorrarRutina_1 = new JButton("");
+        btnBorrarRutina_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		vRutina.setVisible(false);
+        		vMenu.setVisible(true);
+        	}
+        });
+        btnBorrarRutina_1.setForeground(new Color(255, 255, 255));
+        btnBorrarRutina_1.setIcon(new ImageIcon(VentanaRutina.class.getResource("/imagenes/atrascolor.jpg")));
+        btnBorrarRutina_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        btnBorrarRutina_1.setBounds(10, 11, 101, 74);
+        vRutina.getContentPane().add(btnBorrarRutina_1);
         
         try {
         	FileInputStream fich = new FileInputStream("rutinas/rutina.txt");

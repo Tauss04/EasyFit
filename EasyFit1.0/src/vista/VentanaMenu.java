@@ -18,6 +18,7 @@ import modelo.Rutina;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class VentanaMenu {	
 	private JFrame ventana1;
@@ -115,7 +116,8 @@ public class VentanaMenu {
         btnNewButton.setBounds(360, 415, 190, 47);
         ventana1.getContentPane().add(btnNewButton);
         
-        JButton btnVolverAInicio = new JButton("Volver a Inicio");
+        JButton btnVolverAInicio = new JButton("");
+        btnVolverAInicio.setIcon(new ImageIcon(VentanaMenu.class.getResource("/imagenes/atrascolor.jpg")));
         btnVolverAInicio.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		ventana1.setVisible(false);
@@ -124,7 +126,7 @@ public class VentanaMenu {
         });
         btnVolverAInicio.setPreferredSize(new Dimension(200, 50));
         btnVolverAInicio.setFont(new Font("SansSerif", Font.PLAIN, 15));
-        btnVolverAInicio.setBounds(10, 614, 149, 36);
+        btnVolverAInicio.setBounds(10, 575, 119, 75);
         ventana1.getContentPane().add(btnVolverAInicio);
         
         
