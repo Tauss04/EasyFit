@@ -49,7 +49,7 @@ public class VentanaCreoRutina {
         
         TextField clasificacion = new TextField();
         clasificacion.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        clasificacion.setBounds(311, 84, 134, 21);
+        clasificacion.setBounds(311, 84, 134, 32);
         vCreoRutina.getContentPane().add(clasificacion);
         
         JLabel lblIntroduceTusEjercicios = new JLabel("Introduce tus ejercicios");
